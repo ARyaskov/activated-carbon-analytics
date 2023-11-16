@@ -61,7 +61,7 @@ cp ~/somewhere/y.csv .
 
 
 # Populate Clickhouse database with x and y data (e.g. in Docker Desktop terminal)
-cd /lib/var/clickhouse
+cd /var/lib/clickhouse
 clickhouse-client --query="INSERT INTO x_table FORMAT CSVWithNames" --database=activated_carbon_analytics < x.csv
 
 clickhouse-client --query="INSERT INTO y_table FORMAT CSVWithNames" --database=activated_carbon_analytics < y.csv
