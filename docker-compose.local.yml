@@ -1,0 +1,33 @@
+version: '3'
+services:
+  clickhouse:
+    image: yandex/clickhouse-server
+    container_name: clickhouse
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - /home/user/clickhouse-data:/var/lib/clickhouse
+
+  activated-carbon-analytics-server:
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    image: ariaskov/activated-carbon-analytics-server
+    ports:
+      - "3010:3000"
+    depends_on:
+      - clickhouse
+
+  activated-carbon-analytics-ui:
+    build:
+      context: .
+      dockerfile: ui.Dockerfile
+      args:
+        - SERVER_ENDPOINT=http://localhost:3010
+    image: ariaskov/activated-carbon-analytics-ui
+    ports:
+      - "3011:80"
+    depends_on:
+      - activated-carbon-analytics-server
+

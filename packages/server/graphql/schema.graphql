@@ -1,0 +1,52 @@
+
+enum Event {
+    fclick
+    registration
+    content
+}
+
+type DeviceModel {
+    name: String!
+    amount: Int!
+}
+type CTRData {
+    timestamp: String!
+    ctr: Float!
+}
+
+type EvPMData {
+    timestamp: String!
+    evpm: Float!
+}
+
+
+input GetCTRByDayFilterInput {
+    date: String!
+}
+
+input GetCTRByTwoDatesFilterInput {
+    startDate: String!
+    endDate: String!
+}
+
+input GetEvPMByTwoDatesFilterInput {
+    startDate: String!
+    endDate: String!
+    mode: Event!
+}
+
+
+"""
+The root Query type that provides the entry point to the data graph.
+"""
+type Query {
+  "A simple root query"
+  root: String
+
+  getTop50Models: [DeviceModel]!
+  getCTRByTwoDates(filter: GetCTRByTwoDatesFilterInput!): [CTRData]!
+  getCTRByDay(filter: GetCTRByDayFilterInput!): [CTRData]!
+
+  getEvPMByTwoDates(filter: GetEvPMByTwoDatesFilterInput!): [EvPMData]!
+}
+

@@ -1,0 +1,50 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "packageManager": "yarn@3.6.3",
+  "description": "",
+  "author": "",
+  "private": true,
+  "scripts": {
+    "build": "nest build",
+    "build:windows": "yarnpkg rimraf ./dist/ && yarnpkg format && tsc -p tsconfig.json",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "start:demo": "npx cross-env HOST=localhost PORT=3000 yarn start",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "devDependencies": {
+    "@types/chai": "4.2.0",
+    "@types/chai-as-promised": "7.1.6",
+    "@types/mocha": "9.1.0",
+    "chai": "4.2.0",
+    "rimraf": "5.0.5"
+  },
+  "dependencies": {
+    "clickhouse": "^2.6.0"
+  }
+}
