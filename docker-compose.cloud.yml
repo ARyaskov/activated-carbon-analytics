@@ -3,6 +3,8 @@ services:
   clickhouse:
     image: yandex/clickhouse-server
     container_name: clickhouse
+    networks:
+      - internal_network
     ports:
       - "8123:8123"
       - "9000:9000"
@@ -31,4 +33,6 @@ services:
     depends_on:
       - activated-carbon-analytics-server
 
-
+networks:
+  internal_network:
+    driver: bridge
