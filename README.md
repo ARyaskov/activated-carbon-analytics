@@ -6,6 +6,7 @@
 ![ClickHouse Badge](https://img.shields.io/badge/ClickHouse-FFCC01?logo=clickhouse&logoColor=000&style=flat)
 
 ## Overview
+![Activated Carbon Analytics Screenshot](screenshot.jpg)
 
 ## Requirements
 
