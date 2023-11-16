@@ -6,8 +6,8 @@ services:
     networks:
       - internal_network
     ports:
-      - "8123:8123"
-      - "9000:9000"
+      - "127.0.0.1:8123:8123"
+      - "127.0.0.1:9000:9000"
     volumes:
       - /home/user/clickhouse-data:/var/lib/clickhouse
 
