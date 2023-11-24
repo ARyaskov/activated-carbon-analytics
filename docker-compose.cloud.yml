@@ -16,6 +16,8 @@ services:
       context: .
       dockerfile: server.Dockerfile
     image: ariaskov/activated-carbon-analytics-server
+    networks:
+      - internal_network
     ports:
       - "3010:3000"
     depends_on:
@@ -26,7 +28,7 @@ services:
       context: .
       dockerfile: ui.Dockerfile
       args:
-        - SERVER_ENDPOINT=http://localhost:3010
+        - SERVER_ENDPOINT=https://ac-analytics.toivo.tech
     image: ariaskov/activated-carbon-analytics-ui
     ports:
       - "3011:80"

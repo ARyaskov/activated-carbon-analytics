@@ -12,7 +12,7 @@ import "./sass/common.scss";
 
 const domNode = document.getElementById("container");
 const root = createRoot(domNode);
-const url = process.env.SERVER_ENDPOINT ?? "http://localhost:3010";
+const url = process.env.SERVER_ENDPOINT ?? "http://localhost:3000";
 
 function prependProtocol(url: string): string {
   if (

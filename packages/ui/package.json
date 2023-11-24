@@ -8,7 +8,7 @@
     "build:test": "parcel build src/index.html",
     "build": "npx parcel build src/index.html",
     "build:docker": "npx parcel build src/index.html",
-    "start:dev": "npx parcel src/index.html",
+    "start:dev": "npx parcel ./src/index.html",
     "format": "prettier --write \"src/**/*.ts(x)?\"",
     "start:demo": "npx parcel src/index.html"
   },
